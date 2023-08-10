@@ -1,0 +1,11 @@
+<div>
+    <div class="list">
+        <span *ngIf="tree.children; else list">{{ isEnabled ? '▼' : '▶' }} &nbsp;</span>
+
+        <ng-template #list>
+            <span #list>•  &nbsp;</span>
+        </ng-template>
+        <div (click)="toggleChild()">{{ tree.name }}</div>
+    </div>
+    <app-child-link [child]="tree.children" *ngIf="tree.children && isEnabled"></app-child-link>
+</div>
